@@ -1,9 +1,11 @@
 package com.julian.wirelessadvocates.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -13,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.julian.wirelessadvocates.R;
+import com.julian.wirelessadvocates.fragments.VerizonFragment;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -20,6 +23,7 @@ import com.julian.wirelessadvocates.R;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static final String TAG = "PlaceholderFragment";
 
     private PageViewModel pageViewModel;
 
@@ -46,14 +50,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_main, container, false);
-        final TextView textView = root.findViewById(R.id.section_label);
-        pageViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        View root = inflater.inflate(R.layout.fragment_verizon, container, false);
         return root;
     }
 }
