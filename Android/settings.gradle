@@ -1,0 +1,2 @@
+rootProject.name='Wireless Advocates'
+include ':app'
