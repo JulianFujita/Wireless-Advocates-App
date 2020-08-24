@@ -7,4 +7,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="website">Website</string>
+    <string name="coverage_map">Coverage Map</string>
+    <string name="_5g_map">5G Map</string>
+    <string name="description">Description</string>
+    <string name="military_plans">Military Plans</string>
+    <string name="att_support">Support (888) 355-2518</string>
+    <string name="verizon_support">Support (866) 338-7390</string>
+    <string name="tmobile_support">Support (888) 310-8369</string>
 </resources>

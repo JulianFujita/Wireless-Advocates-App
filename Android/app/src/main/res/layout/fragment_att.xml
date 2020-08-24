@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.VerizonFragment">
+    tools:context=".fragments.AttFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,50 +17,50 @@
             <Button
                 android:textAppearance="?attr/textAppearanceButton"
                 android:textSize="32sp"
-                android:id="@+id/verizon_website"
+                android:id="@+id/att_website"
                 android:text="@string/website"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
                 android:textAppearance="?attr/textAppearanceButton"
                 android:textSize="32sp"
-                android:id="@+id/verizon_plans"
+                android:id="@+id/att_plans"
                 android:text="@string/rate_plans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
                 android:textAppearance="?attr/textAppearanceButton"
                 android:textSize="32sp"
-                android:id="@+id/verizon_military_plans"
+                android:id="@+id/att_military_plans"
                 android:text="@string/military_plans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
                 android:textAppearance="?attr/textAppearanceButton"
                 android:textSize="32sp"
-                android:id="@+id/verizon_coverage_map"
+                android:id="@+id/att_coverage_map"
                 android:text="@string/coverage_map"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
                 android:textAppearance="?attr/textAppearanceButton"
                 android:textSize="32sp"
-                android:id="@+id/verizon_5g_coverage_map"
+                android:id="@+id/att_5g_coverage_map"
                 android:text="@string/_5g_map"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
                 android:textAppearance="?attr/textAppearanceButton"
                 android:textSize="32sp"
-                android:id="@+id/verizon_description"
+                android:id="@+id/att_description"
                 android:text="@string/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
                 android:textAppearance="?attr/textAppearanceButton"
                 android:textSize="32sp"
-                android:id="@+id/verizon_support"
-                android:text="@string/verizon_support"
+                android:id="@+id/att_support"
+                android:text="@string/att_support"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

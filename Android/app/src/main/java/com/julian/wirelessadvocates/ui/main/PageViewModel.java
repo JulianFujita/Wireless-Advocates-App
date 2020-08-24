@@ -1,5 +1,7 @@
 package com.julian.wirelessadvocates.ui.main;
 
+import android.util.Log;
+
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

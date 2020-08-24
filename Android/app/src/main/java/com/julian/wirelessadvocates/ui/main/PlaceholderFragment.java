@@ -15,6 +15,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.julian.wirelessadvocates.R;
+import com.julian.wirelessadvocates.fragments.AttFragment;
+import com.julian.wirelessadvocates.fragments.TMobileFragment;
 import com.julian.wirelessadvocates.fragments.VerizonFragment;
 
 /**
@@ -27,12 +29,33 @@ public class PlaceholderFragment extends Fragment {
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(ARG_SECTION_NUMBER, index);
-        fragment.setArguments(bundle);
-        return fragment;
+    public static Fragment newInstance(int index) {
+
+        // Fragment based on index
+        if(index == 1){
+            VerizonFragment fragment = new VerizonFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt(ARG_SECTION_NUMBER, index);
+            fragment.setArguments(bundle);
+
+            return fragment;
+        }
+        else if(index == 2){
+            AttFragment fragment = new AttFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt(ARG_SECTION_NUMBER, index);
+            fragment.setArguments(bundle);
+
+            return fragment;
+        }
+        else {
+            TMobileFragment fragment = new TMobileFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt(ARG_SECTION_NUMBER, index);
+            fragment.setArguments(bundle);
+
+            return fragment;
+        }
     }
 
     @Override
@@ -50,7 +73,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_verizon, container, false);
+        View root = inflater.inflate(R.layout.fragment_main, container, false);
         return root;
     }
 }
