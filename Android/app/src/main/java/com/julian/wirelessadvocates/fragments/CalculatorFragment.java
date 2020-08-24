@@ -25,7 +25,6 @@ public class CalculatorFragment extends DialogFragment {
     private Spinner plans;
 
     public CalculatorFragment() {
-        // Required empty public constructor
         this.setCancelable(false);
     }
 
