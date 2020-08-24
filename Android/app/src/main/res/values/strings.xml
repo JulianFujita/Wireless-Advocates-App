@@ -15,4 +15,9 @@
     <string name="att_support">Support (888) 355-2518</string>
     <string name="verizon_support">Support (866) 338-7390</string>
     <string name="tmobile_support">Support (888) 310-8369</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="carrier">Carrier</string>
+    <string name="bill_calculator">Bill Calculator</string>
+    <string name="plan">Plan</string>
 </resources>
