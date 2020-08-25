@@ -12,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.julian.wirelessadvocates.R;
+import com.julian.wirelessadvocates.models.Carrier;
+import com.julian.wirelessadvocates.models.Carriers;
+import com.julian.wirelessadvocates.models.Plan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,8 @@ public class CalculatorFragment extends DialogFragment {
     private Spinner carriers;
     private Spinner plans;
 
+    private Carriers c = new Carriers();
+
     public CalculatorFragment() {
         this.setCancelable(false);
     }
@@ -35,16 +40,28 @@ public class CalculatorFragment extends DialogFragment {
         View root = inflater.inflate(R.layout.fragment_calculator, container, false);
 
         // Initialize variables here
-        carriers = root.findViewById(R.id.spinner_carrier);
-        List<String> list = new ArrayList<>();
-        list.add("Verizon");
-        list.add("AT&T");
-        list.add("T-Mobile");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        carriers.setAdapter(adapter);
 
+        // Carriers Spinner
+        carriers = root.findViewById(R.id.spinner_carrier);
+        List<String> carrierList = new ArrayList<>();
+        carrierList.add("Verizon");
+        carrierList.add("AT&T");
+        carrierList.add("T-Mobile");
+        ArrayAdapter<String> carrierAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, carrierList);
+        carrierAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        carriers.setAdapter(carrierAdapter);
+
+        // Plans Spinner
         plans = root.findViewById(R.id.spinner_plans);
+        List<String> planList = new ArrayList<>();
+        ArrayList<Plan> planArrayList = c.VERIZON.plans;
+        for(int i = 0; i < planArrayList.size(); i++){
+            planList.add(planArrayList.get(i).name);
+        }
+        ArrayAdapter<String> planAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, planList);
+        planAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plans.setAdapter(planAdapter);
+
         // TODO Finish setting up spinners and other fields
 
 

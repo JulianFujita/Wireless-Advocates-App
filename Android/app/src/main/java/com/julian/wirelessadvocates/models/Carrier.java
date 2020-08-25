@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Carrier {
 
-    private String name;
-    private ArrayList<Plan> plans = new ArrayList<>();
-    private int monthsAgreement;
+    public String name;
+    public ArrayList<Plan> plans = new ArrayList<>();
+    public int monthsAgreement;
 
     public Carrier(String name, ArrayList<Plan> plans, int monthsAgreement){
         this.name = name;

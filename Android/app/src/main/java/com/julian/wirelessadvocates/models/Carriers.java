@@ -53,6 +53,35 @@ public class Carriers {
         verizonJustKids.put(5, 25f);
         verizonPlans.add(new Plan("Just Kids", verizonJustKids));
 
+        HashMap<Integer, Float> verizonMilitaryStartUnlimited = new HashMap<>();    // Military Start Unlimited
+        verizonMilitaryStartUnlimited.put(1, 60f);
+        verizonMilitaryStartUnlimited.put(2, 47.50f);
+        verizonMilitaryStartUnlimited.put(3, 36.66f);
+        verizonMilitaryStartUnlimited.put(4, 30f);
+        verizonPlans.add(new Plan("Military Start Unlimited", verizonMilitaryStartUnlimited));
+
+        HashMap<Integer, Float> verizonMilitaryPlayMoreUnlimited = new HashMap<>(); // Military Play More Unlimited
+        verizonMilitaryPlayMoreUnlimited.put(1, 70f);
+        verizonMilitaryPlayMoreUnlimited.put(2, 57.50f);
+        verizonMilitaryPlayMoreUnlimited.put(3, 46.66f);
+        verizonMilitaryPlayMoreUnlimited.put(4, 40f);
+        verizonPlans.add(new Plan("Military Play More Unlimited", verizonMilitaryPlayMoreUnlimited));
+
+        HashMap<Integer, Float> verizonMilitaryDoMoreUnlimited = new HashMap<>();   // Military Do More Unlimited
+        verizonMilitaryDoMoreUnlimited.put(1, 70f);
+        verizonMilitaryDoMoreUnlimited.put(2, 57.50f);
+        verizonMilitaryDoMoreUnlimited.put(3, 46.66f);
+        verizonMilitaryDoMoreUnlimited.put(4, 40f);
+        verizonPlans.add(new Plan("Military Do More Unlimited", verizonMilitaryDoMoreUnlimited));
+
+        HashMap<Integer, Float> verizonMilitaryGetMoreUnlimited = new HashMap<>();  // Military Get More Unlimited
+        verizonMilitaryGetMoreUnlimited.put(1, 80f);
+        verizonMilitaryGetMoreUnlimited.put(2, 67.50f);
+        verizonMilitaryGetMoreUnlimited.put(3, 56.66f);
+        verizonMilitaryGetMoreUnlimited.put(4, 50f);
+        verizonPlans.add(new Plan("Military Get More Unlimited", verizonMilitaryGetMoreUnlimited));
+
         VERIZON = new Carrier("Verizon", verizonPlans, 24);
+
     }
 }
