@@ -83,5 +83,110 @@ public class Carriers {
 
         VERIZON = new Carrier("Verizon", verizonPlans, 24);
 
+
+        ArrayList<Plan> attPlans = new ArrayList<>();   // AT&T
+
+        HashMap<Integer, Float> attUnlimitedElite = new HashMap<>();
+        attUnlimitedElite.put(1, 85f);
+        attUnlimitedElite.put(2, 75f);
+        attUnlimitedElite.put(3, 60f);
+        attUnlimitedElite.put(4, 50f);
+        attPlans.add(new Plan("Unlimited Elite", attUnlimitedElite));
+
+        HashMap<Integer, Float> attUnlimitedExtra = new HashMap<>();
+        attUnlimitedExtra.put(1, 75f);
+        attUnlimitedExtra.put(2, 65f);
+        attUnlimitedExtra.put(3, 50f);
+        attUnlimitedExtra.put(4, 40f);
+        attPlans.add(new Plan("Unlimited Extra", attUnlimitedExtra));
+
+        HashMap<Integer, Float> attUnlimitedStarter = new HashMap<>();
+        attUnlimitedStarter.put(1, 65f);
+        attUnlimitedStarter.put(2, 60f);
+        attUnlimitedStarter.put(3, 45f);
+        attUnlimitedStarter.put(4, 35f);
+        attPlans.add(new Plan("Unlimited Starter", attUnlimitedStarter));
+
+        HashMap<Integer, Float> attMobileSharePlus9GB = new HashMap<>();
+        attMobileSharePlus9GB.put(1, 60f);
+        attMobileSharePlus9GB.put(2, 50f);
+        attMobileSharePlus9GB.put(3, 40f);
+        attMobileSharePlus9GB.put(4, 35f);
+        attPlans.add(new Plan("Mobile Share Plus 9GB", attMobileSharePlus9GB));
+
+        HashMap<Integer, Float> attMobileSharePlus3GB = new HashMap<>();
+        attMobileSharePlus3GB.put(1, 50f);
+        attMobileSharePlus3GB.put(2, 40f);
+        attMobileSharePlus3GB.put(3, 34f);
+        attMobileSharePlus3GB.put(4, 30f);
+        attPlans.add(new Plan("Mobile Share Plus 3GB", attMobileSharePlus3GB));
+
+        HashMap<Integer, Float> attMilitaryUnlimitedStarter = new HashMap<>();
+        attMilitaryUnlimitedStarter.put(1, 48.75f);
+        attMilitaryUnlimitedStarter.put(2, 45f);
+        attMilitaryUnlimitedStarter.put(3, 33.75f);
+        attMilitaryUnlimitedStarter.put(4, 26.25f);
+        attPlans.add(new Plan("Military Unlimited Starter", attMilitaryUnlimitedStarter));
+
+        HashMap<Integer, Float> attMilitaryUnlimitedExtra = new HashMap<>();
+        attMilitaryUnlimitedExtra.put(1, 56.25f);
+        attMilitaryUnlimitedExtra.put(2, 48.75f);
+        attMilitaryUnlimitedExtra.put(3, 37.50f);
+        attMilitaryUnlimitedExtra.put(4, 30f);
+        attPlans.add(new Plan("Military Unlimited Extra", attMilitaryUnlimitedExtra));
+
+        HashMap<Integer, Float> attMilitaryUnlimitedElite = new HashMap<>();
+        attMilitaryUnlimitedElite.put(1, 63.75f);
+        attMilitaryUnlimitedElite.put(2, 56.25f);
+        attMilitaryUnlimitedElite.put(3, 45f);
+        attMilitaryUnlimitedElite.put(4, 37.5f);
+        attPlans.add(new Plan("Military Unlimited Elite", attMilitaryUnlimitedElite));
+
+        ATT = new Carrier("AT&T", attPlans, 30);
+
+
+        ArrayList<Plan> tmobilePlans = new ArrayList<>();   // T-Mobile
+
+        HashMap<Integer, Float> tmobileEssentials = new HashMap<>();
+        tmobileEssentials.put(1, 60f);
+        tmobileEssentials.put(2, 45f);
+        tmobileEssentials.put(3, 35f);
+        tmobileEssentials.put(4, 30f);
+        tmobileEssentials.put(5, 27f);
+        tmobilePlans.add(new Plan("Essentials", tmobileEssentials));
+
+        HashMap<Integer, Float> tmobileMagenta = new HashMap<>();
+        tmobileMagenta.put(1, 70f);
+        tmobileMagenta.put(2, 60f);
+        tmobileMagenta.put(3, 46.67f);
+        tmobileMagenta.put(4, 40f);
+        tmobileMagenta.put(5, 36f);
+        tmobilePlans.add(new Plan("Magenta", tmobileMagenta));
+
+        HashMap<Integer, Float> tmobileMagentaPlus = new HashMap<>();
+        tmobileMagentaPlus.put(1, 85f);
+        tmobileMagentaPlus.put(2, 70f);
+        tmobileMagentaPlus.put(3, 56.67f);
+        tmobileMagentaPlus.put(4, 50f);
+        tmobileMagentaPlus.put(5, 46f);
+        tmobilePlans.add(new Plan("Magenta Plus", tmobileMagentaPlus));
+
+        HashMap<Integer, Float> tmobileMilitaryMagenta = new HashMap<>();
+        tmobileMilitaryMagenta.put(1, 55f);
+        tmobileMilitaryMagenta.put(2, 40f);
+        tmobileMilitaryMagenta.put(3, 30f);
+        tmobileMilitaryMagenta.put(4, 25f);
+        tmobileMilitaryMagenta.put(5, 22f);
+        tmobilePlans.add(new Plan("Military Magenta", tmobileMilitaryMagenta));
+
+        HashMap<Integer, Float> tmobileMilitaryMagentaPlus = new HashMap<>();
+        tmobileMilitaryMagentaPlus.put(2, 50f);
+        tmobileMilitaryMagentaPlus.put(3, 40f);
+        tmobileMilitaryMagentaPlus.put(4, 35f);
+        tmobileMilitaryMagentaPlus.put(5, 32f);
+        tmobilePlans.add(new Plan("Military Magenta Plus", tmobileMilitaryMagentaPlus));
+
+        T_MOBILE = new Carrier("T-Mobile", tmobilePlans, 24);
+
     }
 }
