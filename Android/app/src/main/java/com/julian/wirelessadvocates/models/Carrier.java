@@ -1,5 +1,7 @@
 package com.julian.wirelessadvocates.models;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Carrier {
@@ -14,4 +16,11 @@ public class Carrier {
         this.monthsAgreement = monthsAgreement;
     }
 
+    public Plan getPlanByName(String name, ArrayList<Plan> plans){
+        for(int i = 0; i < plans.size(); i++){
+            if(plans.get(i).name == name)
+                return plans.get(i);
+        }
+        return null;
+    }
 }

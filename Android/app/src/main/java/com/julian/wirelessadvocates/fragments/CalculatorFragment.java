@@ -21,6 +21,7 @@ import com.julian.wirelessadvocates.models.Plan;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +30,7 @@ public class CalculatorFragment extends DialogFragment {
 
     private Spinner carriers;
     private Spinner plans;
+    private Spinner lines;
 
     private Carriers c = new Carriers();
 
@@ -65,9 +67,21 @@ public class CalculatorFragment extends DialogFragment {
         carriers.setAdapter(carrierAdapter);
 
         // Plans Spinner
-
-        // TODO Finish setting up spinners and other fields
         changePlanList(root);
+        // Lines Spinner
+        changeLineList(root, plans.getSelectedItem().toString());
+        lines.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                // TODO fix crash when carrier is changed
+                //changeLineList(root, plans.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) { }
+
+        });
 
         return root;
     }
@@ -94,5 +108,35 @@ public class CalculatorFragment extends DialogFragment {
         ArrayAdapter<String> planAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, planList);
         planAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         plans.setAdapter(planAdapter);
+    }
+
+    public void changeLineList(View root, String selection){
+        String carrierSelection = carriers.getSelectedItem().toString();
+        ArrayList<Plan> planArrayList = new ArrayList<>();
+        Plan selectedPlan = new Plan();
+        switch(carrierSelection){
+            case "Verizon":
+                planArrayList = c.VERIZON.plans;
+                selectedPlan = c.VERIZON.getPlanByName(selection, planArrayList);
+                break;
+            case "AT&T":
+                planArrayList = c.ATT.plans;
+                selectedPlan = c.ATT.getPlanByName(selection, planArrayList);
+                break;
+            case "T-Mobile":
+                planArrayList = c.T_MOBILE.plans;
+                selectedPlan = c.T_MOBILE.getPlanByName(selection, planArrayList);
+        }
+
+        lines = root.findViewById(R.id.spinner_lines);
+        Object[] keySet = selectedPlan.priceMap.keySet().toArray();
+        ArrayList<String> lineList = new ArrayList<>();
+
+        for(int i = 0; i < keySet.length; i++){
+            lineList.add(keySet[i].toString() + " Lines");
+        }
+        ArrayAdapter<String> planAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, lineList);
+        planAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        lines.setAdapter(planAdapter);
     }
 }
