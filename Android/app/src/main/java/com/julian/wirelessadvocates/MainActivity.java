@@ -39,12 +39,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 fab.hide();
-
-                // TODO fix null pointer reference
                 CalculatorFragment fragment = new CalculatorFragment();
                 fragment.show(getSupportFragmentManager(), "calculator");
-                Window window = fragment.getDialog().getWindow();
-                window.setLayout(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.FILL_PARENT);
             }
         });
 

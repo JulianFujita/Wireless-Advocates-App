@@ -1,7 +1,11 @@
 package com.julian.wirelessadvocates.fragments;
 
+import android.app.ActionBar;
+import android.app.Dialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
@@ -9,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -36,6 +41,12 @@ public class CalculatorFragment extends DialogFragment {
 
     public CalculatorFragment() {
         this.setCancelable(false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.getDialog().getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
     }
 
     @Override
@@ -69,13 +80,14 @@ public class CalculatorFragment extends DialogFragment {
         // Plans Spinner
         changePlanList(root);
         // Lines Spinner
+
         changeLineList(root, plans.getSelectedItem().toString());
-        lines.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        plans.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
                 // TODO fix crash when carrier is changed
-                //changeLineList(root, plans.getSelectedItem().toString());
+                changeLineList(root, plans.getSelectedItem().toString());
             }
 
             @Override
@@ -98,6 +110,7 @@ public class CalculatorFragment extends DialogFragment {
                 break;
             case "T-Mobile":
                 planArrayList = c.T_MOBILE.plans;
+                break;
         }
 
         plans = root.findViewById(R.id.spinner_plans);
@@ -126,6 +139,7 @@ public class CalculatorFragment extends DialogFragment {
             case "T-Mobile":
                 planArrayList = c.T_MOBILE.plans;
                 selectedPlan = c.T_MOBILE.getPlanByName(selection, planArrayList);
+                break;
         }
 
         lines = root.findViewById(R.id.spinner_lines);
