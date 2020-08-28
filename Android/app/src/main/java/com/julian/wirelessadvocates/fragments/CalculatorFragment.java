@@ -1,7 +1,10 @@
 package com.julian.wirelessadvocates.fragments;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,7 +20,9 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.julian.wirelessadvocates.MainActivity;
 import com.julian.wirelessadvocates.R;
@@ -35,13 +40,28 @@ import java.util.Set;
  */
 public class CalculatorFragment extends DialogFragment {
 
+    private static final String TAG = "CalculatorFragment";
+
     private Spinner carriers;
     private Spinner plans;
     private Spinner lines;
     private Button backButton;
     private Button calculateButton;
+    private EditText phonePrice;
+    private EditText promotionPrice;
 
     private Carriers c = new Carriers();
+    private CalculatorBackButton mCallback;
+
+    public interface CalculatorBackButton{
+        public void dismissDialog();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mCallback = (CalculatorBackButton)context;
+    }
 
     public CalculatorFragment() {
         this.setCancelable(false);
@@ -60,18 +80,81 @@ public class CalculatorFragment extends DialogFragment {
         final View root = inflater.inflate(R.layout.fragment_calculator, container, false);
 
         // Initialize variables here
+        phonePrice = root.findViewById(R.id.phone_edittext);
+        promotionPrice = root.findViewById(R.id.promotion_edittext);
         backButton = root.findViewById(R.id.back_button);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO remove dialog and show FAB
+                mCallback.dismissDialog();
             }
         });
         calculateButton = root.findViewById(R.id.calculate_button);
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO calculate and show alertdialog
+                if(phonePrice.getText().toString().length() != 0 && promotionPrice.getText().toString().length() != 0)
+                {
+                    // Variables
+                    String selectedCarrier = carriers.getSelectedItem().toString();
+                    Carrier carrier = new Carrier();
+                    float monthlyBill = 0;
+
+                    String plan = plans.getSelectedItem().toString();
+                    int line = Integer.parseInt(lines.getSelectedItem().toString().substring(0, 1));
+                    float phone = Float.parseFloat(phonePrice.getText().toString());
+                    float promo = Float.parseFloat(promotionPrice.getText().toString());
+
+                    // Get carrier
+                    switch(selectedCarrier){
+                        case "Verizon":
+                            carrier = c.VERIZON;
+                            break;
+                        case "AT&T":
+                            carrier = c.ATT;
+                            break;
+                        case "T-Mobile":
+                            carrier = c.T_MOBILE;
+                            break;
+                    }
+
+                    // Calculate monthly bill
+                    // TODO Calculate and display bill
+
+
+                    // Set up string array for displaying
+                    String[] result = {
+                            selectedCarrier + " (" + plan + ")",
+                            line + " Line(s)\t$" + carrier.getPlanByName(plan).priceMap.get(line).toString() + "/Line",
+                            "Phones: $" + phone,
+                            "Promotions: $" + promo
+                    };
+                    // Build AlertDialog
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    AlertDialog dialog;
+
+                    builder.setTitle("Monthly Bill");
+                    builder.setNeutralButton("Back", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    builder.setItems(result, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+
+                    dialog = builder.create();
+                    dialog.show();
+                }
+                else{
+                    Toast.makeText(getContext(), "Please enter your data correctly", Toast.LENGTH_SHORT).show();
+                }
+                
+                
             }
         });
 
@@ -146,15 +229,15 @@ public class CalculatorFragment extends DialogFragment {
         switch(carrierSelection){
             case "Verizon":
                 planArrayList = c.VERIZON.plans;
-                selectedPlan = c.VERIZON.getPlanByName(selection, planArrayList);
+                selectedPlan = c.VERIZON.getPlanByName(selection);
                 break;
             case "AT&T":
                 planArrayList = c.ATT.plans;
-                selectedPlan = c.ATT.getPlanByName(selection, planArrayList);
+                selectedPlan = c.ATT.getPlanByName(selection);
                 break;
             case "T-Mobile":
                 planArrayList = c.T_MOBILE.plans;
-                selectedPlan = c.T_MOBILE.getPlanByName(selection, planArrayList);
+                selectedPlan = c.T_MOBILE.getPlanByName(selection);
                 break;
         }
 

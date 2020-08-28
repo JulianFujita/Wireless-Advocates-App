@@ -18,9 +18,11 @@ import android.view.Window;
 import com.julian.wirelessadvocates.fragments.CalculatorFragment;
 import com.julian.wirelessadvocates.ui.main.SectionsPagerAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CalculatorFragment.CalculatorBackButton {
 
     private static final String TAG = "MainActivity";
+    FloatingActionButton fab;
+    CalculatorFragment calculatorFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        final FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
 
         final FragmentManager fm = getSupportFragmentManager();
 
@@ -39,10 +41,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 fab.hide();
-                CalculatorFragment fragment = new CalculatorFragment();
-                fragment.show(getSupportFragmentManager(), "calculator");
+                calculatorFragment = new CalculatorFragment();
+                calculatorFragment.show(getSupportFragmentManager(), "calculator");
             }
         });
 
+    }
+
+    @Override
+    public void dismissDialog()
+    {
+        calculatorFragment.dismiss();
+        fab.show();
     }
 }

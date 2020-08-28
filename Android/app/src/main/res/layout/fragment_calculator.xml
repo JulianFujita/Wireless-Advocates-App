@@ -86,7 +86,8 @@
             android:layout_weight="3"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:textAlignment="viewEnd"/>
+            android:textAlignment="viewEnd"
+            android:text="@string/default_value"/>
 
     </LinearLayout>
     <LinearLayout
@@ -107,7 +108,8 @@
             android:layout_weight="3"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:textAlignment="viewEnd"/>
+            android:textAlignment="viewEnd"
+            android:text="@string/default_value"/>
 
     </LinearLayout>
 
