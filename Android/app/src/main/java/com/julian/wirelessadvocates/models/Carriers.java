@@ -152,22 +152,29 @@ public class Carriers {
         tmobileEssentials.put(3, 35f);
         tmobileEssentials.put(4, 30f);
         tmobileEssentials.put(5, 27f);
+        tmobileEssentials.put(6, 25f);
         tmobilePlans.add(new Plan("Essentials", tmobileEssentials));
 
         HashMap<Integer, Float> tmobileMagenta = new HashMap<>();
         tmobileMagenta.put(1, 70f);
         tmobileMagenta.put(2, 60f);
-        tmobileMagenta.put(3, 46.67f);
-        tmobileMagenta.put(4, 40f);
-        tmobileMagenta.put(5, 36f);
+        tmobileMagenta.put(3, 40f);
+        tmobileMagenta.put(4, 35f);
+        tmobileMagenta.put(5, 32f);
+        tmobileMagenta.put(6, 30f);
+        tmobileMagenta.put(7, 29f);
+        tmobileMagenta.put(8, 28f);
         tmobilePlans.add(new Plan("Magenta", tmobileMagenta));
 
         HashMap<Integer, Float> tmobileMagentaPlus = new HashMap<>();
         tmobileMagentaPlus.put(1, 85f);
         tmobileMagentaPlus.put(2, 70f);
-        tmobileMagentaPlus.put(3, 56.67f);
-        tmobileMagentaPlus.put(4, 50f);
-        tmobileMagentaPlus.put(5, 46f);
+        tmobileMagentaPlus.put(3, 47f);
+        tmobileMagentaPlus.put(4, 43f);
+        tmobileMagentaPlus.put(5, 40f);
+        tmobileMagentaPlus.put(6, 38f);
+        tmobileMagentaPlus.put(7, 37f);
+        tmobileMagentaPlus.put(8, 36f);
         tmobilePlans.add(new Plan("Magenta Plus", tmobileMagentaPlus));
 
         HashMap<Integer, Float> tmobileMilitaryMagenta = new HashMap<>();

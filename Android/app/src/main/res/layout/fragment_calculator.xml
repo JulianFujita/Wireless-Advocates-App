@@ -29,7 +29,7 @@
             android:id="@+id/spinner_carrier"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,7 +87,8 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:textAlignment="viewEnd"
-            android:text="@string/default_value"/>
+            android:text="@string/default_value"
+            android:layout_marginRight="10dp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -109,7 +110,8 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:textAlignment="viewEnd"
-            android:text="@string/default_value"/>
+            android:text="@string/default_value"
+            android:layout_marginRight="10dp"/>
 
     </LinearLayout>
 
@@ -117,7 +119,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
         <Button
             android:textAppearance="?attr/textAppearanceButton"
             android:textSize="24sp"

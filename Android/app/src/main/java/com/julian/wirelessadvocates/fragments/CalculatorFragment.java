@@ -3,8 +3,12 @@ package com.julian.wirelessadvocates.fragments;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -117,23 +121,28 @@ public class CalculatorFragment extends DialogFragment {
                             carrier = c.T_MOBILE;
                             break;
                     }
+                    float linePrice = carrier.getPlanByName(plan).priceMap.get(line);
 
                     // Calculate monthly bill
-                    // TODO Calculate and display bill
+                    monthlyBill = (linePrice * line) + ((phone - promo) / carrier.monthsAgreement);
 
 
                     // Set up string array for displaying
-                    String[] result = {
+                    final String[] result = {
                             selectedCarrier + " (" + plan + ")",
-                            line + " Line(s)\t$" + carrier.getPlanByName(plan).priceMap.get(line).toString() + "/Line",
-                            "Phones: $" + phone,
-                            "Promotions: $" + promo
+                            line + " Line(s)\t$" + String.format("%.2f", linePrice) + "/Line",
+                            "",
+                            "Data: $" + String.format("%.2f", linePrice * line) + "/Month",
+                            "Phones: $" + String.format("%.2f", ((phone - promo) / carrier.monthsAgreement)) + "/Month",
+                            "Applied Promotions: $" + String.format("%.2f", promo),
+                            "",
+                            "Total Monthly Bill: $" + String.format("%.2f", monthlyBill)
                     };
                     // Build AlertDialog
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     AlertDialog dialog;
 
-                    builder.setTitle("Monthly Bill");
+                    builder.setTitle("Monthly Bill Breakdown");
                     builder.setNeutralButton("Back", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -143,7 +152,7 @@ public class CalculatorFragment extends DialogFragment {
                     builder.setItems(result, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
+                            // TODO Button functinoality for monthly bill calcuation
                         }
                     });
 
