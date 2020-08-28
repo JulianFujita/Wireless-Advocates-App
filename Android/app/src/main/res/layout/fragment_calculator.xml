@@ -12,6 +12,7 @@
         android:text="@string/bill_calculator"
         android:textSize="32sp"
         android:layout_marginLeft="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +20,7 @@
         android:layout_marginTop="10dp">
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textAlignment="textEnd"
             android:layout_height="wrap_content"
             android:text="@string/carrier"
@@ -27,7 +28,7 @@
         <Spinner
             android:id="@+id/spinner_carrier"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
@@ -37,7 +38,7 @@
         android:layout_marginTop="10dp">
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textAlignment="textEnd"
             android:layout_height="wrap_content"
             android:text="@string/plan"
@@ -45,7 +46,7 @@
         <Spinner
             android:id="@+id/spinner_plans"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
@@ -55,13 +56,79 @@
         android:layout_marginTop="10dp">
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textAlignment="textEnd"
             android:layout_height="wrap_content"
             android:text="@string/lines"
             android:textSize="24sp"/>
         <Spinner
             android:id="@+id/spinner_lines"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_price"
+            android:textSize="24sp"/>
+        <EditText
+            android:id="@+id/phone_edittext"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textAlignment="viewEnd"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:text="@string/promotions"
+            android:textSize="24sp"/>
+        <EditText
+            android:id="@+id/promotion_edittext"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textAlignment="viewEnd"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <Button
+            android:textAppearance="?attr/textAppearanceButton"
+            android:textSize="24sp"
+            android:id="@+id/back_button"
+            android:text="@string/cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:textAppearance="?attr/textAppearanceButton"
+            android:textSize="24sp"
+            android:id="@+id/calculate_button"
+            android:text="@string/calculate"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"/>

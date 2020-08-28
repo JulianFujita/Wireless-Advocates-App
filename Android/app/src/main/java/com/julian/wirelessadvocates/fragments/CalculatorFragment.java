@@ -16,8 +16,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
+import com.julian.wirelessadvocates.MainActivity;
 import com.julian.wirelessadvocates.R;
 import com.julian.wirelessadvocates.models.Carrier;
 import com.julian.wirelessadvocates.models.Carriers;
@@ -36,6 +38,8 @@ public class CalculatorFragment extends DialogFragment {
     private Spinner carriers;
     private Spinner plans;
     private Spinner lines;
+    private Button backButton;
+    private Button calculateButton;
 
     private Carriers c = new Carriers();
 
@@ -56,6 +60,20 @@ public class CalculatorFragment extends DialogFragment {
         final View root = inflater.inflate(R.layout.fragment_calculator, container, false);
 
         // Initialize variables here
+        backButton = root.findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO remove dialog and show FAB
+            }
+        });
+        calculateButton = root.findViewById(R.id.calculate_button);
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO calculate and show alertdialog
+            }
+        });
 
         // Carriers Spinner
         carriers = root.findViewById(R.id.spinner_carrier);
@@ -85,8 +103,6 @@ public class CalculatorFragment extends DialogFragment {
         plans.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-
-                // TODO fix crash when carrier is changed
                 changeLineList(root, plans.getSelectedItem().toString());
             }
 

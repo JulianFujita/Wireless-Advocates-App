@@ -10,7 +10,6 @@ public class Carriers {
     public static Carrier T_MOBILE;
 
     public Carriers(){
-        // TODO create carriers and plans here
 
         ArrayList<Plan> verizonPlans = new ArrayList<>();   // VERIZON
 
