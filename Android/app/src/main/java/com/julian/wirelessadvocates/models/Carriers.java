@@ -152,29 +152,22 @@ public class Carriers {
         tmobileEssentials.put(3, 35f);
         tmobileEssentials.put(4, 30f);
         tmobileEssentials.put(5, 27f);
-        tmobileEssentials.put(6, 25f);
         tmobilePlans.add(new Plan("Essentials", tmobileEssentials));
 
         HashMap<Integer, Float> tmobileMagenta = new HashMap<>();
         tmobileMagenta.put(1, 70f);
         tmobileMagenta.put(2, 60f);
-        tmobileMagenta.put(3, 40f);
-        tmobileMagenta.put(4, 35f);
-        tmobileMagenta.put(5, 32f);
-        tmobileMagenta.put(6, 30f);
-        tmobileMagenta.put(7, 29f);
-        tmobileMagenta.put(8, 28f);
+        tmobileMagenta.put(3, 46.67f);
+        tmobileMagenta.put(4, 40f);
+        tmobileMagenta.put(5, 36f);
         tmobilePlans.add(new Plan("Magenta", tmobileMagenta));
 
         HashMap<Integer, Float> tmobileMagentaPlus = new HashMap<>();
         tmobileMagentaPlus.put(1, 85f);
         tmobileMagentaPlus.put(2, 70f);
-        tmobileMagentaPlus.put(3, 47f);
-        tmobileMagentaPlus.put(4, 43f);
-        tmobileMagentaPlus.put(5, 40f);
-        tmobileMagentaPlus.put(6, 38f);
-        tmobileMagentaPlus.put(7, 37f);
-        tmobileMagentaPlus.put(8, 36f);
+        tmobileMagentaPlus.put(3, 56.67f);
+        tmobileMagentaPlus.put(4, 50f);
+        tmobileMagentaPlus.put(5, 46f);
         tmobilePlans.add(new Plan("Magenta Plus", tmobileMagentaPlus));
 
         HashMap<Integer, Float> tmobileMilitaryMagenta = new HashMap<>();
@@ -191,6 +184,20 @@ public class Carriers {
         tmobileMilitaryMagentaPlus.put(4, 35f);
         tmobileMilitaryMagentaPlus.put(5, 32f);
         tmobilePlans.add(new Plan("Military Magenta Plus", tmobileMilitaryMagentaPlus));
+
+        HashMap<Integer, Float> tmobileEssential55 = new HashMap<>();
+        tmobileEssential55.put(1, 40f);
+        tmobileEssential55.put(2, 27.50f);
+        tmobilePlans.add(new Plan("Essentials 55", tmobileEssential55));
+
+        HashMap<Integer, Float> tmobileMagenta55 = new HashMap<>();
+        tmobileMagenta55.put(1, 50f);
+        tmobileMagenta55.put(2, 35f);
+        tmobilePlans.add(new Plan("Magenta 55", tmobileMagenta55));
+
+        HashMap<Integer, Float> tmobileMagentaPlus55 = new HashMap<>();
+        tmobileMagentaPlus55.put(2, 45f);
+        tmobilePlans.add(new Plan("Magenta Plus 55", tmobileMagentaPlus55));
 
         T_MOBILE = new Carrier("T-Mobile", tmobilePlans, 24);
 
